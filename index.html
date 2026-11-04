@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kauã Almeida — Robotics &amp; Mechanical Engineering</title>
+  <meta name="description" content="Kauã Ferreira de Almeida’s portfolio in robotics, control, mechanical engineering, and materials research. Seeking a six-month final-year internship from March 2027.">
+  <meta property="og:title" content="Kauã Almeida — Robotics &amp; Mechanical Engineering">
+  <meta property="og:description" content="Robotics, control, mechanical engineering, and experimental research.">
+  <meta property="og:type" content="website">
+  <link rel="preload" href="./assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./assets/styles.css">
+  <script src="./assets/typewriter.js" defer></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="./" aria-current="page">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#tools">Tools</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="portfolio-layout">
+    <aside class="profile-card" aria-label="Profile">
+      <img class="profile-photo" src="./assets/images/kaua-portrait.jpeg" alt="Kauã Ferreira de Almeida" width="1024" height="1280" fetchpriority="high">
+      <h3>Kauã Ferreira de Almeida</h3>
+      <h3>Mechanical &amp; Robotics Engineering</h3>
+      <p class="profile-location">Clermont-Ferrand, France</p>
+      <div class="profile-links">
+        <a href="https://www.linkedin.com/in/kaua-ferreira-de-almeida/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:kaualmeida2013@hotmail.com">Email</a>
+      </div>
+      <a class="cv-button" href="./assets/images/cv-french.png" target="_blank" rel="noopener noreferrer">View French CV</a>
+    </aside>
+
+    <main id="main" class="portfolio-content">
+      <section class="intro" aria-label="Introduction">
+        <h2>Hello</h2>
+        <h1>I’m Kauã Ferreira de Almeida,</h1>
+        <h1 class="role-heading" data-role-heading>
+          <span class="sr-only">Mechanical Engineer and Robotics Engineer</span>
+          <span class="role-visual" aria-hidden="true">
+            <span class="role-space">Mechanical Engineer</span>
+            <span class="role-line"><span data-typewriter>Mechanical Engineer</span><span class="typing-cursor"></span></span>
+          </span>
+        </h1>
+        <p class="intro-summary">I’m a final-year mechanical engineering student specializing in robotics and pursuing a parallel master’s in automation and robotics. At Institut Pascal, I helped turn a method for manipulating flexible objects into code, tested it on real robot arms and analyzed the results.</p>
+        <p class="availability">Seeking a 6-month final-year internship · Available March 2027</p>
+        <div class="intro-actions">
+          <a class="intro-button" href="#projects">Explore projects <span aria-hidden="true">↓</span></a>
+          <a class="intro-secondary" href="#contact">Get in touch</a>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title" class="section-title">Selected projects</h2>
+        <div class="project-grid">
+          <a class="card project-card" data-project="deformable-objects" href="./deformable-objects/">
+            <img class="project-image franka-project-image" src="./assets/images/franka-cover.png" alt="Franka Emika robot arm with a two-finger gripper" width="800" height="800" loading="lazy">
+            <div class="project-card-copy">
+              <p class="project-year">Institut Pascal · 2026</p>
+              <h3>Learning to manipulate deformable objects</h3>
+              <p class="project-description">Implemented and tested a method that lets two or three robot arms adapt a taught movement using live feedback on the object’s shape.</p>
+              <p class="project-tags">Franka Emika · RGB-D · Robot learning</p>
+              <p class="project-action">Watch the experiments <span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+
+          <a class="card project-card" data-project="3d-reconstruction" href="./3d-reconstruction/">
+            <img class="project-image reconstruction-project-image" src="./assets/images/reconstruction-shoe.jpg" alt="Red 3D mesh of a reconstructed shoe" width="625" height="378" loading="lazy">
+            <div class="project-card-copy">
+              <p class="project-year">SIGMA Clermont · 2025–2026</p>
+              <h3>Robotic 3D reconstruction of a shoe</h3>
+              <p class="project-description">A team project that combined a simulated UR3e scan, RGB-D vision and Open3D to turn multiple views of a shoe into a 3D mesh.</p>
+              <p class="project-tags">ROS 2 · Gazebo · MoveIt 2 · Open3D</p>
+              <p class="project-action">See the reconstruction <span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+
+          <a class="card project-card" data-project="bioactive-pla" href="./bioactive-pla/">
+            <img class="project-image" src="./assets/images/pla-cover.png" alt="3D printer creating the letters 3D on a blue print bed" width="850" height="446" loading="lazy">
+            <div class="project-card-copy">
+              <p class="project-year">Federal University of Uberlândia · 2022–2025</p>
+              <h3>Biocompatible, sterilization-resistant 3D-printed PLA</h3>
+              <p class="project-description">Powder bed annealing with a hydroxyapatite coating raised the heat deflection temperature to at least 150 °C, enabling autoclave sterilization without deformation in the tests.</p>
+              <p class="project-tags">3D printing · Hydroxyapatite · Materials testing</p>
+              <p class="project-action">Read the case study <span aria-hidden="true">→</span></p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <section aria-labelledby="publications-title">
+        <h2 id="publications-title" class="section-title">Publications</h2>
+        <a class="card publication-card" href="https://doi.org/10.1007/s00170-026-18504-9" target="_blank" rel="noopener noreferrer">
+          <div class="publication-heading">
+            <h3>Adhesion, sterilization resistance and heat deflection temperature of 3D printed PLA parts coated with hydroxyapatite by powder bed annealing</h3>
+            <span class="publication-year">2026</span>
+          </div>
+          <p class="publication-journal">The International Journal of Advanced Manufacturing Technology</p>
+          <div class="publication-details">
+            <p>July 2026 · Volume 145 (11–12) · Pages 8187–8206</p>
+            <p class="doi">DOI: 10.1007/s00170-026-18504-9 · CC BY 4.0</p>
+          </div>
+        </a>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title" class="section-title">Experience</h2>
+        <div class="stack">
+          <article class="card experience-card">
+            <h3>Robotics Research Intern</h3>
+            <p class="experience-meta">Institut Pascal, SIGMA Clermont · France · May – September 2026</p>
+            <ul class="experience-details">
+              <li>Helped formulate the method and translated the mathematics into code to combine demonstrated robot motions with live shape feedback.</li>
+              <li>Ran experiments on Franka arms with a rubber sole, an A4 foam sheet and a triangular mat, and analyzed the resulting data.</li>
+            </ul>
+            <a class="section-link" href="./deformable-objects/">See the experiments <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="card experience-card">
+            <h3>Researcher · Machining Laboratory</h3>
+            <p class="experience-meta">Federal University of Uberlândia · Brazil · March 2022 – June 2025</p>
+            <ul class="experience-details">
+              <li>Researched personalized 3D-printed insoles, low-cost bone implants and the mechanical behavior of printed materials.</li>
+              <li>Prepared scientific reports and presented findings at national and international events.</li>
+            </ul>
+            <a class="section-link" href="./bioactive-pla/">See the PLA research <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section id="education" aria-labelledby="education-title">
+        <h2 id="education-title" class="section-title">Education</h2>
+        <div class="stack">
+          <article class="card education-card">
+            <p class="education-meta">Aubière, France · 2025–2027 · In progress</p>
+            <h3>SIGMA Clermont</h3>
+            <p class="education-degree">Mechanical Engineering · Innovative Mechanisms and Robots (IMR)</p>
+            <p>Engineering double degree with the Federal University of Uberlândia. The IMR track covers robot kinematics and control, mechanical design, sensor integration and computer vision.</p>
+            <a class="section-link" href="./3d-reconstruction/">Applied project · Robotic 3D reconstruction <span aria-hidden="true">→</span></a>
+          </article>
+          <article class="card education-card">
+            <p class="education-meta">Clermont-Ferrand, France · 2026–2027 · In progress</p>
+            <h3>Université Clermont Auvergne</h3>
+            <p class="education-degree">Master 2 · Automation &amp; Robotics · Perception artificielle et robotique (PAR)</p>
+            <p>Master’s program pursued alongside the SIGMA engineering degree. The track covers computer vision, sensor fusion, machine learning and robotic system modeling and control.</p>
+          </article>
+          <article class="card education-card">
+            <p class="education-meta">Uberlândia, Brazil · 2022–2027 · In progress</p>
+            <h3>Federal University of Uberlândia</h3>
+            <p class="education-degree">Mechanical Engineering · Home institution for the double degree</p>
+            <p>Training in mechanics, materials, mechanical design and manufacturing processes, applied through research on additive manufacturing and printed materials at the Machining Laboratory.</p>
+            <a class="section-link" href="./bioactive-pla/">Applied research · 3D-printed PLA <span aria-hidden="true">→</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <h2 id="skills-title" class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <article class="card competency-card">
+            <div class="skill-heading">
+              <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/></svg>
+              <h3>Robotics</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>Motion planning</li>
+              <li>Closed-loop control</li>
+              <li>Learning from demonstration</li>
+              <li>Force sensing</li>
+              <li>Calibration</li>
+              <li>Experimental validation</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="skill-heading">
+              <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="3"/></svg>
+              <h3>Vision &amp; AI</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>RGB-D perception</li>
+              <li>Point cloud processing</li>
+              <li>3D reconstruction</li>
+              <li>Machine learning</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="skill-heading">
+              <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-2-15-4 18"/></svg>
+              <h3>Programming &amp; data analysis</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>C++</li>
+              <li>Python</li>
+              <li>Data filtering</li>
+              <li>Scientific visualization</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="skill-heading">
+              <svg class="skill-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5zm-9 5 9 5 9-5m-9 5v10"/></svg>
+              <h3>Simulation &amp; mechanical design</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>Robot simulation</li>
+              <li>Multibody modeling</li>
+              <li>CAD</li>
+              <li>Additive manufacturing</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="tools" aria-labelledby="tools-title">
+        <h2 id="tools-title" class="section-title">Tools</h2>
+        <div class="skills-grid">
+          <article class="card competency-card">
+            <div class="tool-heading">
+              <img class="tool-logo tool-logo-light" src="./assets/icons/ros.png" alt="" width="38" height="38" loading="lazy">
+              <h3>Robot control</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>ROS 1</li>
+              <li>ROS 2</li>
+              <li>ros2_control</li>
+              <li>MoveIt 2</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="tool-heading">
+              <img class="tool-logo" src="./assets/icons/sensing.svg" alt="" width="38" height="38" loading="lazy">
+              <h3>Robots &amp; sensors</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>Franka Emika</li>
+              <li>Universal Robots UR5e / UR3e</li>
+              <li>KUKA</li>
+              <li>Intel RealSense</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="tool-heading">
+              <img class="tool-logo" src="./assets/icons/python.svg" alt="" width="38" height="38" loading="lazy">
+              <h3>Vision &amp; machine learning</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>OpenCV</li>
+              <li>Open3D</li>
+              <li>PyTorch (coursework)</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="tool-heading">
+              <img class="tool-logo" src="./assets/icons/gazebo.svg" alt="" width="38" height="38" loading="lazy">
+              <h3>Simulation &amp; modeling</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>Gazebo</li>
+              <li>MATLAB / Simulink</li>
+              <li>Simscape</li>
+              <li>Adams</li>
+              <li>Ansys</li>
+              <li>OpenModelica</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="tool-heading">
+              <img class="tool-logo" src="./assets/icons/solidworks.png" alt="" width="38" height="38" loading="lazy">
+              <h3>CAD &amp; 3D printing</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>3DEXPERIENCE</li>
+              <li>CATIA</li>
+              <li>SOLIDWORKS</li>
+              <li>Cura</li>
+            </ul>
+          </article>
+          <article class="card competency-card">
+            <div class="tool-heading">
+              <img class="tool-logo" src="./assets/icons/office.svg" alt="" width="38" height="38" loading="lazy">
+              <h3>Development &amp; data tools</h3>
+            </div>
+            <ul class="competency-tags" role="list">
+              <li>Linux</li>
+              <li>Git</li>
+              <li>NumPy</li>
+              <li>pandas</li>
+              <li>Matplotlib</li>
+              <li>Microsoft Office</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="languages-title">
+        <h2 id="languages-title" class="section-title">Languages</h2>
+        <p class="languages"><span>Portuguese · Native</span><span>English · C1</span><span>French · B2</span></p>
+      </section>
+
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title" class="section-title">Contact</h2>
+        <h3>Let’s get in touch!</h3>
+        <div class="stack">
+          <a class="card contact-row" href="mailto:kaualmeida2013@hotmail.com"><p class="contact-label">Email</p><p class="contact-value">kaualmeida2013@hotmail.com</p></a>
+          <a class="card contact-row" href="tel:+33688637459"><p class="contact-label">Phone</p><p class="contact-value">+33 (0)6 88 63 74 59</p></a>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
