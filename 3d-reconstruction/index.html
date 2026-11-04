@@ -1,101 +1,104 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Robotic 3D reconstruction of a shoe — Kauã Ferreira de Almeida</title>
-  <meta name="description" content="A SIGMA Clermont team project combining a simulated UR3e, YOLOv11 segmentation trained in Roboflow, and ROS 2 with Open3D to reconstruct a shoe.">
-  <meta property="og:title" content="Robotic 3D reconstruction of a shoe">
-  <meta property="og:description" content="From a robot-mounted depth camera to a 3D mesh for industrial inspection.">
+  <title>Reconstruction 3D robotisée d’une chaussure | Kauã Ferreira de Almeida</title>
+  <meta name="description" content="Projet d’équipe à SIGMA Clermont combinant un UR3e simulé, la segmentation YOLOv11 entraînée dans Roboflow, ROS 2 et Open3D pour reconstruire une chaussure.">
+  <meta property="og:title" content="Reconstruction 3D robotisée d’une chaussure">
+  <meta property="og:description" content="D’une caméra de profondeur montée sur un robot à un maillage 3D pour l’inspection industrielle.">
   <meta property="og:type" content="article">
   <link rel="preload" href="../assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/styles.css">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="alternate" hreflang="en" href="../en/3d-reconstruction/">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="../">Home</a>
-    <a href="../#projects">Projects</a>
-    <a href="../#education">Education</a>
+  <a href="#main" class="skip-link">Aller au contenu</a>
+  <nav class="site-nav" aria-label="Navigation principale">
+    <a href="../">Accueil</a>
+    <a href="../#projects">Projets</a>
+    <a href="../#education">Formation</a>
+    <a class="language-switch" href="../en/3d-reconstruction/" hreflang="en" lang="en" aria-label="Read in English">EN</a>
   </nav>
 
   <main id="main" class="case-study">
-    <a class="back-link" href="../#projects">Back to projects</a>
+    <a class="back-link" href="../#projects">Retour aux projets</a>
     <header class="case-header">
-      <h1>Robotic 3D reconstruction of a shoe</h1>
-      <p class="case-meta">SIGMA Clermont · Innovative Mechanisms and Robots (IMR) · 2025–2026</p>
+      <h1>Reconstruction 3D robotisée d’une chaussure</h1>
+      <p class="case-meta">SIGMA Clermont · Mécanique innovante et robotique (IMR) · 2025–2026</p>
     </header>
 
     <section class="case-section" aria-labelledby="challenge-title">
-      <h2 id="challenge-title">Can a robot scan a flexible object in 3D?</h2>
-      <p>Our eight-student team built a robotic scanning prototype for industrial inspection and remanufacturing. We used a shoe as a test object because its curved surfaces hide parts of the geometry from any single angle. A simulated UR3e arm moved a color-and-depth camera around the shoe so we could reconstruct its shape from several views.</p>
+      <h2 id="challenge-title">Un robot peut-il numériser un objet souple en 3D ?</h2>
+      <p>Notre équipe de huit étudiants a réalisé un prototype de numérisation robotisée pour l’inspection industrielle et le reconditionnement. Nous avons choisi une chaussure comme objet d’essai, car ses surfaces courbes masquent une partie de sa géométrie selon l’angle de vue. Un bras UR3e simulé a déplacé une caméra couleur et profondeur autour de la chaussure pour en reconstruire la forme à partir de plusieurs vues.</p>
       <figure class="case-figure reconstruction-setup">
-        <img src="../assets/images/reconstruction-ur3e.jpg" alt="Simulated UR3e robot arm looking down at a shoe on a workbench" width="1034" height="581">
-        <figcaption>Gazebo simulation used to plan and test camera viewpoints (SIGMA Clermont team report, Fig. 14(b)).</figcaption>
+        <img src="../assets/images/reconstruction-ur3e.jpg" alt="Bras robotique UR3e simulé pointé vers une chaussure posée sur un établi" width="1034" height="581">
+        <figcaption>Simulation Gazebo utilisée pour planifier et tester les points de vue de la caméra (rapport d’équipe SIGMA Clermont, fig. 14b).</figcaption>
       </figure>
     </section>
 
     <section class="case-section" aria-labelledby="contribution-title">
-      <h2 id="contribution-title">My contribution · Shoe segmentation</h2>
-      <p>I trained YOLOv11 Nano instance segmentation models in Roboflow to identify which pixels belong to the shoe. The dataset shown below contains 1,551 images, including views of different shoes, orientations and lighting conditions. We used the predicted masks to keep the shoe’s color and depth measurements and filter out the background before reconstruction.</p>
+      <h2 id="contribution-title">Ma contribution · Segmentation de la chaussure</h2>
+      <p>J’ai entraîné dans Roboflow des modèles de segmentation d’instances YOLOv11 Nano pour identifier les pixels appartenant à la chaussure. Le jeu de données ci-dessous contient 1 551 images de différentes chaussures, orientations et conditions d’éclairage. Les masques prédits ont permis de conserver les données de couleur et de profondeur de la chaussure et de filtrer l’arrière-plan avant la reconstruction.</p>
       <figure class="case-figure overview-figure">
-        <a href="../assets/images/reconstruction-roboflow.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Roboflow screenshot at full size in a new tab">
-          <img src="../assets/images/reconstruction-roboflow.png" alt="Roboflow dataset dashboard with outlined shoe masks in the test split and several YOLOv11 Nano model versions" width="1551" height="827" loading="lazy">
+        <a href="../assets/images/reconstruction-roboflow.png" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir la capture Roboflow en taille réelle dans un nouvel onglet">
+          <img src="../assets/images/reconstruction-roboflow.png" alt="Tableau de bord Roboflow présentant les masques de chaussures du jeu de test et plusieurs versions du modèle YOLOv11 Nano" width="1551" height="827" loading="lazy">
         </a>
-        <figcaption>Roboflow dataset v7. It contains 1,095 training, 339 validation and 117 test images. Select the image to see the masks at full size.</figcaption>
+        <figcaption>Jeu de données Roboflow v7 avec 1 095 images d’entraînement, 339 de validation et 117 de test. Cliquez sur l’image pour voir les masques en taille réelle.</figcaption>
       </figure>
     </section>
 
     <section class="case-section" aria-labelledby="method-title">
-      <h2 id="method-title">From camera views to a 3D model</h2>
+      <h2 id="method-title">Des vues de la caméra au modèle 3D</h2>
       <div class="method-steps">
         <article class="method-step">
           <span class="step-number" aria-hidden="true">01</span>
-          <h3>Move around the shoe</h3>
-          <p>We mounted a simulated RGB-D camera on the UR3e wrist in Gazebo. We started with fixed waypoints, then used color and depth to estimate the shoe’s center and generate viewpoints around it. MoveIt 2 planned the motion while the camera stayed pointed at the shoe.</p>
+          <h3>Déplacer la caméra autour de la chaussure</h3>
+          <p>Dans Gazebo, nous avons fixé une caméra RGB-D simulée au poignet de l’UR3e. Nous avons commencé par des points de passage fixes, puis utilisé la couleur et la profondeur pour estimer le centre de la chaussure et générer des points de vue autour d’elle. MoveIt 2 a planifié le mouvement en gardant la caméra orientée vers la chaussure.</p>
         </article>
         <article class="method-step">
           <span class="step-number" aria-hidden="true">02</span>
-          <h3>Separate the shoe from the scene</h3>
-          <p>A ROS 2 node sent color frames to the model hosted on Roboflow and applied the returned shoe masks to the aligned depth images. We inspected the color images, depth maps, camera frames and point clouds in RViz to check coverage and alignment.</p>
+          <h3>Isoler la chaussure dans la scène</h3>
+          <p>Un nœud ROS 2 envoyait les images couleur au modèle hébergé sur Roboflow et appliquait les masques obtenus aux images de profondeur alignées. Nous avons utilisé RViz pour vérifier les images couleur, les cartes de profondeur, les repères de la caméra et les nuages de points.</p>
         </article>
         <article class="method-step">
           <span class="step-number" aria-hidden="true">03</span>
-          <h3>Combine the views</h3>
-          <p>ROS 2’s TF tree provided the camera pose at each frame’s timestamp. The Open3D-based pipeline used those poses to fuse the depth measurements in a shared 3D volume (TSDF), then extracted a triangle mesh with Marching Cubes and exported it as a PLY file.</p>
+          <h3>Combiner les vues</h3>
+          <p>L’arbre TF de ROS 2 fournissait la pose de la caméra à l’instant de chaque image. La chaîne de traitement Open3D s’appuyait sur ces poses pour fusionner les mesures de profondeur dans un volume 3D commun (TSDF), puis extraire un maillage triangulaire avec Marching Cubes et l’exporter au format PLY.</p>
         </article>
       </div>
     </section>
 
     <section class="case-section" aria-labelledby="results-title">
-      <h2 id="results-title">What changed between the two tests</h2>
-      <p>In early scans, the arm moved faster than the cloud segmentation service could process frames. The reconstruction missed some viewpoints and produced gaps and stray geometry. We slowed the simulated arm’s 240° sweep to 110 seconds and limited inference to one frame per second. The later mesh captures the shoe’s overall shape, including its opening and sole, with some residual artifacts around the edges.</p>
+      <h2 id="results-title">Ce qui a changé entre les deux essais</h2>
+      <p>Lors des premiers essais, le bras se déplaçait plus vite que le service de segmentation en ligne ne traitait les images. Des points de vue manquaient, ce qui produisait des trous et des artefacts dans le maillage. Nous avons ralenti le balayage de 240° du bras simulé pour qu’il dure 110 secondes et limité l’inférence à une image par seconde. Le maillage obtenu restitue la forme générale de la chaussure, notamment son ouverture et sa semelle, avec quelques artefacts résiduels sur les bords.</p>
       <div class="experiment-videos">
         <figure class="video-panel">
-          <p class="video-label" id="early-scan-label">Early reconstruction · March 2026</p>
+          <p class="video-label" id="early-scan-label">Première reconstruction · Mars 2026</p>
           <video controls playsinline preload="none" poster="../assets/images/reconstruction-early-poster.jpg" aria-labelledby="early-scan-label" aria-describedby="early-scan-caption">
             <source src="../assets/videos/reconstruction-early.mp4" type="video/mp4">
-            <a href="../assets/videos/reconstruction-early.mp4">Open the early reconstruction video.</a>
+            <a href="../assets/videos/reconstruction-early.mp4">Ouvrir la vidéo de la première reconstruction.</a>
           </video>
-          <figcaption id="early-scan-caption">Rotating the initial reconstruction reveals fragmented surfaces and large pieces of background geometry.</figcaption>
+          <figcaption id="early-scan-caption">La rotation du premier maillage révèle des surfaces fragmentées et de gros éléments de l’arrière-plan.</figcaption>
         </figure>
         <figure class="video-panel">
-          <p class="video-label" id="final-scan-label">Later reconstruction · April 2026</p>
+          <p class="video-label" id="final-scan-label">Reconstruction améliorée · Avril 2026</p>
           <video controls playsinline preload="none" poster="../assets/images/reconstruction-final-poster.jpg" aria-labelledby="final-scan-label" aria-describedby="final-scan-caption">
             <source src="../assets/videos/reconstruction-final.mp4" type="video/mp4">
-            <a href="../assets/videos/reconstruction-final.mp4">Open the later reconstruction video.</a>
+            <a href="../assets/videos/reconstruction-final.mp4">Ouvrir la vidéo de la reconstruction améliorée.</a>
           </video>
-          <figcaption id="final-scan-caption">The later mesh makes the shoe’s structure visible from several angles. Small stray patches remain.</figcaption>
+          <figcaption id="final-scan-caption">Le maillage amélioré permet de voir la structure de la chaussure sous plusieurs angles. Quelques petits artefacts subsistent.</figcaption>
         </figure>
       </div>
-      <p class="body-follow-up">The team evaluated the reconstruction qualitatively in simulation. A next step is to run the full pipeline on the physical UR3e and measure accuracy against a reference scan.</p>
+      <p class="body-follow-up">L’équipe a évalué qualitativement la reconstruction en simulation. Une prochaine étape serait d’exécuter toute la chaîne sur l’UR3e réel et de mesurer la précision par rapport à un scan de référence.</p>
     </section>
 
     <section class="case-section" aria-labelledby="credits-title">
-      <h2 id="credits-title">Project team</h2>
-      <p>Alexis Rzepecki, Esli Brian Silva Maciel, Kauã Ferreira de Almeida, Marcos López-Loriente Parga, Mateus Stodolni de Aguiar, Matthieu Van Meer, Matthis Vasselin and Victor Soares Mesquita.</p>
-      <p class="body-follow-up">Supervised by José Guerreiro, Mohammed Alkhatib and Youcef Mezouar. Based on the SIGMA Clermont Projet 2A team report, May 2026.</p>
-      <a class="section-link body-follow-up" href="../#projects">Explore other projects <span aria-hidden="true">→</span></a>
+      <h2 id="credits-title">Équipe du projet</h2>
+      <p>Alexis Rzepecki, Esli Brian Silva Maciel, Kauã Ferreira de Almeida, Marcos López-Loriente Parga, Mateus Stodolni de Aguiar, Matthieu Van Meer, Matthis Vasselin et Victor Soares Mesquita.</p>
+      <p class="body-follow-up">Encadrement par José Guerreiro, Mohammed Alkhatib et Youcef Mezouar. D’après le rapport d’équipe du Projet 2A de SIGMA Clermont, mai 2026.</p>
+      <a class="section-link body-follow-up" href="../#projects">Découvrir les autres projets <span aria-hidden="true">→</span></a>
     </section>
   </main>
 </body>

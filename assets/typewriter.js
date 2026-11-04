@@ -3,7 +3,7 @@ const roleText = document.querySelector('[data-typewriter]');
 if (roleText) {
   const heading = document.querySelector('[data-role-heading]');
   const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const roles = ['Mechanical Engineer', 'Robotics Engineer'];
+  const roles = [roleText.textContent, heading.dataset.secondaryRole];
   let roleIndex = 0;
   let length = 0;
   let deleting = false;

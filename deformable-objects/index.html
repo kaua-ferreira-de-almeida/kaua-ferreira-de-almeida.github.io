@@ -1,172 +1,175 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Learning to manipulate deformable objects — Kauã Almeida</title>
-  <meta name="description" content="A simple introduction to Shape-DMP: teaching robot arms a movement and using live camera feedback to guide flexible objects into a desired shape. Three paired experiment videos.">
-  <meta property="og:title" content="Learning to manipulate deformable objects — Kauã Almeida">
-  <meta property="og:description" content="Shape-DMP explained through three real experiments with two and three robot arms.">
+  <title>Apprentissage de la manipulation d’objets déformables | Kauã Almeida</title>
+  <meta name="description" content="Une introduction à Shape-DMP. Des bras robotiques apprennent un mouvement et utilisent le retour visuel en temps réel pour donner une forme souhaitée à des objets souples. Trois expériences présentées en vidéos jumelées.">
+  <meta property="og:title" content="Apprentissage de la manipulation d’objets déformables | Kauã Almeida">
+  <meta property="og:description" content="Shape-DMP expliqué à travers trois expériences menées avec deux ou trois bras robotiques.">
   <meta property="og:type" content="article">
   <link rel="preload" href="../assets/fonts/poppins-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/styles.css">
   <script src="../assets/paired-videos.js" defer></script>
+  <meta property="og:locale" content="fr_FR">
+  <link rel="alternate" hreflang="en" href="../en/deformable-objects/">
 </head>
 <body>
-  <a href="#main" class="skip-link">Skip to content</a>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="../">Home</a>
-    <a href="../#projects">Projects</a>
+  <a href="#main" class="skip-link">Aller au contenu</a>
+  <nav class="site-nav" aria-label="Navigation principale">
+    <a href="../">Accueil</a>
+    <a href="../#projects">Projets</a>
+    <a class="language-switch" href="../en/deformable-objects/" hreflang="en" lang="en" aria-label="Read in English">EN</a>
   </nav>
 
   <main id="main" class="case-study robotics-study">
-    <a class="back-link" href="../#projects">Back to projects</a>
+    <a class="back-link" href="../#projects">Retour aux projets</a>
     <header class="case-header">
-      <h1>Learning to manipulate deformable objects</h1>
-      <h2>Shape-DMP · Demonstrate a movement. Guide the shape.</h2>
+      <h1>Apprentissage de la manipulation d’objets déformables</h1>
+      <h2>Shape-DMP · Apprendre le mouvement et guider la déformation</h2>
       <p class="case-meta">Institut Pascal, SIGMA Clermont · 2026</p>
     </header>
 
     <section class="case-section" aria-labelledby="challenge-title">
-      <h2 id="challenge-title">Why flexible objects are difficult</h2>
-      <p>Imagine bending a shoe sole with both hands. Moving your hands to the right places is only part of the task: the rubber can bend in different ways. A robot faces the same problem when handling a flexible object.</p>
-      <p class="body-follow-up">Our approach combines a movement taught by a person with a camera that watches the object’s shape. The robot arms reuse the demonstrated movement and adjust it as they work, so the goal is the right <em>object shape</em>, rather than just the right final position of the grippers.</p>
+      <h2 id="challenge-title">Pourquoi les objets souples sont difficiles à manipuler</h2>
+      <p>Imaginez que vous pliez une semelle avec les deux mains. Bien placer vos mains ne suffit pas, car le caoutchouc peut se courber de plusieurs façons. Un robot rencontre la même difficulté lorsqu’il manipule un objet souple.</p>
+      <p class="body-follow-up">Notre approche combine un mouvement montré par une personne et une caméra qui observe la déformation. Les bras robotiques reproduisent le mouvement appris et l’ajustent en cours d’exécution pour amener l’objet à la <em>forme souhaitée</em>, au-delà du simple positionnement des pinces.</p>
       <aside class="card contribution-note" aria-labelledby="contribution-title">
-        <h3 id="contribution-title">My contribution</h3>
-        <p>I contributed across the mathematical development, implementation and experimental validation. My responsibilities included translating the mathematical method into working code, carrying out the experimental tests and analyzing the data. I also helped develop the mathematical formulation and plan the approach, working with the research team.</p>
+        <h3 id="contribution-title">Ma contribution</h3>
+        <p>J’ai participé au développement mathématique, à l’implémentation et à la validation expérimentale. J’ai traduit la méthode mathématique en code, réalisé les essais et analysé les données. J’ai aussi contribué à la formulation du modèle et à la conception de la méthode avec l’équipe de recherche.</p>
       </aside>
     </section>
 
     <section class="case-section" aria-labelledby="overview-title">
-      <h2 id="overview-title">How the method works</h2>
-      <p>The overview below connects three stages: learning a movement, adapting it to the object’s shape, and executing it with visual feedback.</p>
+      <h2 id="overview-title">Fonctionnement de la méthode</h2>
+      <p>Le schéma ci-dessous relie trois étapes, de l’apprentissage du mouvement à son exécution avec retour visuel, en passant par l’adaptation à la forme de l’objet.</p>
       <figure class="case-figure overview-figure">
-        <a href="../assets/images/shape-dmp-overview.png" target="_blank" rel="noopener noreferrer" aria-label="Open the Shape-DMP overview at full size in a new tab">
-          <img src="../assets/images/shape-dmp-overview.png" alt="Three-stage Shape-DMP pipeline: DQ-DMP learns a demonstrated end-effector trajectory; shape feedback from a camera is captured and filtered to adapt its weights; the controller combines an adapted forcing function, a shape attractor and damping to coordinate the robots toward a desired object shape." width="1828" height="847">
+        <a href="../assets/images/shape-dmp-overview.png" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le schéma Shape-DMP en taille réelle dans un nouvel onglet">
+          <img src="../assets/images/shape-dmp-overview.png" alt="Chaîne Shape-DMP en trois étapes. DQ-DMP apprend la trajectoire démontrée de l’effecteur. Le retour visuel sur la forme est capturé et filtré pour ajuster les poids. Le contrôleur combine le terme de forçage adapté, un attracteur de forme et un amortissement pour coordonner les robots vers la forme cible." width="1828" height="847">
         </a>
-        <figcaption>Overview of the Shape-DMP workflow. Open the image to see the labels at full size.</figcaption>
+        <figcaption>Vue d’ensemble de la méthode Shape-DMP. Ouvrez l’image pour lire les annotations en taille réelle.</figcaption>
       </figure>
       <div class="method-steps">
         <article class="method-step">
           <span class="step-number" aria-hidden="true">01</span>
-          <h3>Show the robots a movement</h3>
-          <p>A person guides the robot arms by hand. We record how each gripper moves and turns, then use a mathematical model called DQ-DMP to learn that movement.</p>
+          <h3>Montrer le mouvement aux robots</h3>
+          <p>Une personne guide les bras robotiques à la main. Nous enregistrons le déplacement et la rotation de chaque pince, puis nous utilisons un modèle mathématique appelé DQ-DMP pour apprendre le mouvement.</p>
         </article>
         <article class="method-step">
           <span class="step-number" aria-hidden="true">02</span>
-          <h3>Connect movement with shape</h3>
-          <p>The robots replay the learned movement while a depth camera observes the object. We record and filter the shape-control information, then adjust the model’s weights so the arms can work together around a shared shape goal.</p>
+          <h3>Relier le mouvement à la forme</h3>
+          <p>Les robots rejouent le mouvement appris pendant qu’une caméra de profondeur observe l’objet. Nous enregistrons et filtrons les informations sur sa forme, puis ajustons les poids du modèle pour que les bras se coordonnent autour d’une même forme cible.</p>
         </article>
         <article class="method-step">
           <span class="step-number" aria-hidden="true">03</span>
-          <h3>Adjust while moving</h3>
-          <p>During the task, Shape-DMP combines the learned movement with camera feedback. A “shape attractor” guides the object toward the target shape, while damping smooths the response. The task can start from a new pose or finish at a new shape.</p>
+          <h3>Ajuster le mouvement en cours d’exécution</h3>
+          <p>Pendant la tâche, Shape-DMP combine le mouvement appris et le retour de la caméra. Un attracteur de forme guide l’objet vers la forme cible, tandis que l’amortissement rend la réponse plus progressive. La tâche peut partir d’une nouvelle pose ou aboutir à une nouvelle forme.</p>
         </article>
       </div>
     </section>
 
     <section id="experiments" class="case-section experiments-section" aria-labelledby="experiments-title">
-      <h2 id="experiments-title">Watch the experiments</h2>
-      <p>Each experiment has two views: the real robot setup and its matching RViz visualization. RViz shows the robot motion and colored 3D representations of the object and target shapes. The first two experiments use two Franka Emika arms; the third adds a Franka Research 3 arm. An Intel RealSense D435 depth camera observes the object.</p>
-      <p class="video-instructions">Use “Play both” to compare each pair from the same point in its 30-second clips. You can also use the individual video controls or full-screen view.</p>
+      <h2 id="experiments-title">Voir les expériences</h2>
+      <p>Chaque expérience présente deux vues, celle du montage réel et celle de la visualisation RViz correspondante. RViz affiche les mouvements des robots et des représentations 3D colorées de l’objet et des formes cibles. Les deux premières expériences utilisent deux bras Franka Emika. La troisième ajoute un bras Franka Research 3. Une caméra de profondeur Intel RealSense D435 observe l’objet.</p>
+      <p class="video-instructions">Cliquez sur « Lire les deux » pour comparer les vidéos de 30 secondes au même instant. Les commandes de chaque vidéo et le plein écran restent accessibles.</p>
 
       <article class="experiment" id="shoe-sole" data-video-pair aria-labelledby="sole-title">
         <header class="experiment-header">
-          <p class="experiment-index">EXPERIMENT 01 · TWO ROBOTS</p>
-          <h3 id="sole-title">A shoe sole: follow the movement, then reach a new shape</h3>
-          <p>The arms move a rubber shoe sole along the learned path. In this example, they first pass near the demonstration’s final shape, then continue toward a different target shape. This shows that the taught movement can be reused without forcing the object to finish exactly as it did in the demonstration.</p>
+          <p class="experiment-index">EXPÉRIENCE 01 · DEUX ROBOTS</p>
+          <h3 id="sole-title">Semelle de chaussure · Suivre le mouvement et atteindre une nouvelle forme</h3>
+          <p>Les bras déplacent une semelle en caoutchouc le long de la trajectoire apprise. Ils passent d’abord près de la forme finale de la démonstration, puis poursuivent vers une autre forme cible. Le mouvement appris peut ainsi être réutilisé pour atteindre une forme différente.</p>
         </header>
         <div class="video-pair-controls" hidden>
-          <button type="button" class="pair-button" data-pair-toggle aria-label="Play both shoe-sole experiment videos">Play both</button>
-          <button type="button" class="pair-button secondary" data-pair-restart aria-label="Restart both shoe-sole experiment videos">Restart</button>
-          <span class="pair-status" role="status" aria-live="polite" data-pair-status>Ready · 30-second clips</span>
+          <button type="button" class="pair-button" data-pair-toggle aria-label="Lire les deux vidéos de l’expérience avec la semelle">Lire les deux</button>
+          <button type="button" class="pair-button secondary" data-pair-restart aria-label="Reprendre au début les deux vidéos de l’expérience avec la semelle">Reprendre au début</button>
+          <span class="pair-status" role="status" aria-live="polite" data-pair-status>Prêt · Vidéos de 30 secondes</span>
         </div>
         <div class="experiment-videos">
           <figure class="video-panel">
-            <p class="video-label" id="sole-real-label">Real experiment</p>
+            <p class="video-label" id="sole-real-label">Expérience réelle</p>
             <video controls muted playsinline preload="metadata" poster="../assets/images/sole-real-poster.jpg" aria-labelledby="sole-real-label" aria-describedby="sole-real-caption">
               <source src="../assets/videos/sole-real.mp4" type="video/mp4">
-              <a href="../assets/videos/sole-real.mp4">Open the real shoe-sole experiment video.</a>
+              <a href="../assets/videos/sole-real.mp4">Ouvrir la vidéo réelle de l’expérience avec la semelle.</a>
             </video>
-            <figcaption id="sole-real-caption">Two arms carry and deform the rubber sole, using the camera’s shape feedback to approach the target.</figcaption>
+            <figcaption id="sole-real-caption">Deux bras déplacent et déforment la semelle en caoutchouc. Le retour visuel sur sa forme permet d’approcher la cible.</figcaption>
           </figure>
           <figure class="video-panel">
-            <p class="video-label" id="sole-rviz-label">RViz visualization</p>
+            <p class="video-label" id="sole-rviz-label">Visualisation RViz</p>
             <video controls muted playsinline preload="metadata" poster="../assets/images/sole-rviz-poster.jpg" aria-labelledby="sole-rviz-label" aria-describedby="sole-rviz-caption">
               <source src="../assets/videos/sole-rviz.mp4" type="video/mp4">
-              <a href="../assets/videos/sole-rviz.mp4">Open the shoe-sole RViz video.</a>
+              <a href="../assets/videos/sole-rviz.mp4">Ouvrir la vidéo RViz de l’expérience avec la semelle.</a>
             </video>
-            <figcaption id="sole-rviz-caption">Robot models, motion paths and colored shapes make the transition from the demonstrated movement to the target easier to follow.</figcaption>
+            <figcaption id="sole-rviz-caption">Les modèles des robots, les trajectoires et les formes colorées montrent la transition entre le mouvement démontré et la forme cible.</figcaption>
           </figure>
         </div>
       </article>
 
       <article class="experiment" id="foam-sheet" data-video-pair aria-labelledby="foam-title">
         <header class="experiment-header">
-          <p class="experiment-index">EXPERIMENT 02 · TWO ROBOTS</p>
-          <h3 id="foam-title">An A4 foam sheet: turn one curve into the opposite curve</h3>
-          <p>The red sheet starts with a concave curve and finishes with a convex curve. To get there, it passes through a difficult, nearly flat configuration where shape control alone can get stuck. The learned turning movement helps the arms cross that configuration, and visual feedback guides the sheet toward its final shape.</p>
+          <p class="experiment-index">EXPÉRIENCE 02 · DEUX ROBOTS</p>
+          <h3 id="foam-title">Feuille de mousse A4 · Inverser la courbure</h3>
+          <p>La feuille rouge passe d’une courbure concave à une courbure convexe. Elle traverse une configuration presque plane où la commande de forme seule risque de se bloquer. Le mouvement de rotation appris aide les bras à franchir cette configuration, puis le retour visuel guide la feuille vers sa forme finale.</p>
         </header>
         <div class="video-pair-controls" hidden>
-          <button type="button" class="pair-button" data-pair-toggle aria-label="Play both foam-sheet experiment videos">Play both</button>
-          <button type="button" class="pair-button secondary" data-pair-restart aria-label="Restart both foam-sheet experiment videos">Restart</button>
-          <span class="pair-status" role="status" aria-live="polite" data-pair-status>Ready · 30-second clips</span>
+          <button type="button" class="pair-button" data-pair-toggle aria-label="Lire les deux vidéos de l’expérience avec la feuille de mousse">Lire les deux</button>
+          <button type="button" class="pair-button secondary" data-pair-restart aria-label="Reprendre au début les deux vidéos de l’expérience avec la feuille de mousse">Reprendre au début</button>
+          <span class="pair-status" role="status" aria-live="polite" data-pair-status>Prêt · Vidéos de 30 secondes</span>
         </div>
         <div class="experiment-videos">
           <figure class="video-panel">
-            <p class="video-label" id="foam-real-label">Real experiment</p>
+            <p class="video-label" id="foam-real-label">Expérience réelle</p>
             <video controls muted playsinline preload="metadata" poster="../assets/images/foam-real-poster.jpg" aria-labelledby="foam-real-label" aria-describedby="foam-real-caption">
               <source src="../assets/videos/foam-real.mp4" type="video/mp4">
-              <a href="../assets/videos/foam-real.mp4">Open the real foam-sheet experiment video.</a>
+              <a href="../assets/videos/foam-real.mp4">Ouvrir la vidéo réelle de l’expérience avec la feuille de mousse.</a>
             </video>
-            <figcaption id="foam-real-caption">The arms coordinate their rotations to reverse the red foam sheet’s curvature from a new starting pose.</figcaption>
+            <figcaption id="foam-real-caption">Les bras coordonnent leurs rotations pour inverser la courbure de la feuille de mousse rouge à partir d’une nouvelle pose initiale.</figcaption>
           </figure>
           <figure class="video-panel">
-            <p class="video-label" id="foam-rviz-label">RViz visualization</p>
+            <p class="video-label" id="foam-rviz-label">Visualisation RViz</p>
             <video controls muted playsinline preload="metadata" poster="../assets/images/foam-rviz-poster.jpg" aria-labelledby="foam-rviz-label" aria-describedby="foam-rviz-caption">
               <source src="../assets/videos/foam-rviz.mp4" type="video/mp4">
-              <a href="../assets/videos/foam-rviz.mp4">Open the foam-sheet RViz video.</a>
+              <a href="../assets/videos/foam-rviz.mp4">Ouvrir la vidéo RViz de l’expérience avec la feuille de mousse.</a>
             </video>
-            <figcaption id="foam-rviz-caption">The 3D view shows the change in surface shape as the robot pair passes through the difficult intermediate configuration.</figcaption>
+            <figcaption id="foam-rviz-caption">La vue 3D montre l’évolution de la surface pendant que les deux bras franchissent la configuration intermédiaire.</figcaption>
           </figure>
         </div>
       </article>
 
       <article class="experiment" id="triangular-mat" data-video-pair aria-labelledby="mat-title">
         <header class="experiment-header">
-          <p class="experiment-index">EXPERIMENT 03 · THREE ROBOTS</p>
-          <h3 id="mat-title">A triangular mat: move together, then begin a fold</h3>
-          <p>Three arms hold a larger rubber mat. They move it forward using the demonstrated movement, then one arm initiates a fold toward a new target shape. This extends the approach from two arms to three, with a shared view of the object’s changing shape.</p>
+          <p class="experiment-index">EXPÉRIENCE 03 · TROIS ROBOTS</p>
+          <h3 id="mat-title">Tapis triangulaire · Déplacer l’objet et amorcer un pli</h3>
+          <p>Trois bras tiennent un tapis en caoutchouc de plus grande taille. Ils le déplacent vers l’avant en suivant le mouvement démontré, puis un bras amorce un pli vers une nouvelle forme cible. La méthode passe ainsi de deux à trois bras, avec une observation commune de la déformation.</p>
         </header>
         <div class="video-pair-controls" hidden>
-          <button type="button" class="pair-button" data-pair-toggle aria-label="Play both triangular-mat experiment videos">Play both</button>
-          <button type="button" class="pair-button secondary" data-pair-restart aria-label="Restart both triangular-mat experiment videos">Restart</button>
-          <span class="pair-status" role="status" aria-live="polite" data-pair-status>Ready · 30-second clips</span>
+          <button type="button" class="pair-button" data-pair-toggle aria-label="Lire les deux vidéos de l’expérience avec le tapis triangulaire">Lire les deux</button>
+          <button type="button" class="pair-button secondary" data-pair-restart aria-label="Reprendre au début les deux vidéos de l’expérience avec le tapis triangulaire">Reprendre au début</button>
+          <span class="pair-status" role="status" aria-live="polite" data-pair-status>Prêt · Vidéos de 30 secondes</span>
         </div>
         <div class="experiment-videos">
           <figure class="video-panel">
-            <p class="video-label" id="mat-real-label">Real experiment</p>
+            <p class="video-label" id="mat-real-label">Expérience réelle</p>
             <video controls muted playsinline preload="metadata" poster="../assets/images/mat-real-poster.jpg" aria-labelledby="mat-real-label" aria-describedby="mat-real-caption">
               <source src="../assets/videos/mat-real.mp4" type="video/mp4">
-              <a href="../assets/videos/mat-real.mp4">Open the real triangular-mat experiment video.</a>
+              <a href="../assets/videos/mat-real.mp4">Ouvrir la vidéo réelle de l’expérience avec le tapis triangulaire.</a>
             </video>
-            <figcaption id="mat-real-caption">Three arms coordinate the transport of the triangular mat and the start of a folding motion.</figcaption>
+            <figcaption id="mat-real-caption">Trois bras coordonnent le déplacement du tapis triangulaire et le début du pliage.</figcaption>
           </figure>
           <figure class="video-panel">
-            <p class="video-label" id="mat-rviz-label">RViz visualization</p>
+            <p class="video-label" id="mat-rviz-label">Visualisation RViz</p>
             <video controls muted playsinline preload="metadata" poster="../assets/images/mat-rviz-poster.jpg" aria-labelledby="mat-rviz-label" aria-describedby="mat-rviz-caption">
               <source src="../assets/videos/mat-rviz.mp4" type="video/mp4">
-              <a href="../assets/videos/mat-rviz.mp4">Open the triangular-mat RViz video.</a>
+              <a href="../assets/videos/mat-rviz.mp4">Ouvrir la vidéo RViz de l’expérience avec le tapis triangulaire.</a>
             </video>
-            <figcaption id="mat-rviz-caption">The three robot models and the mat’s 3D representation show how the coordinated movement approaches the new shape goal.</figcaption>
+            <figcaption id="mat-rviz-caption">Les modèles des trois robots et la représentation 3D du tapis montrent comment le mouvement coordonné rapproche l’objet de la forme cible.</figcaption>
           </figure>
         </div>
       </article>
     </section>
 
     <section class="case-section" aria-labelledby="results-title">
-      <h2 id="results-title">What these experiments show</h2>
-      <p>Combining a demonstrated movement with live shape feedback allows the robot arms to reach new object shapes, cross difficult configurations and coordinate a task with two or three arms. The camera’s visibility remains important: larger folds can hide parts of the object and interrupt shape tracking.</p>
+      <h2 id="results-title">Ce que montrent les expériences</h2>
+      <p>Associer un mouvement démontré au retour visuel en temps réel permet aux bras robotiques d’atteindre de nouvelles formes, de franchir des configurations difficiles et de se coordonner à deux ou trois. Le champ de vision de la caméra reste important, car les plis prononcés peuvent masquer des parties de l’objet et interrompre le suivi de sa forme.</p>
     </section>
   </main>
 </body>

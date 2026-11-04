@@ -1,5 +1,30 @@
 // Each experiment pairs the supplied real footage and RViz clip.
 // The standard video controls remain usable without JavaScript.
+const messages = document.documentElement.lang === 'fr' ? {
+  play: 'Lire les deux',
+  pause: 'Mettre en pause les deux',
+  loading: 'Chargement…',
+  loadingPair: 'Chargement des deux vidéos…',
+  finished: 'Terminé · relancer la lecture ou reprendre au début',
+  playing: 'Lecture des deux vues',
+  paused: 'En pause · cliquez sur « Lire les deux » pour comparer',
+  individual: 'Utilisez les commandes de chaque vidéo pour charger les deux vues.',
+  restarted: 'Retour au début · prêt à lire',
+  startBoth: 'Cliquez sur « Lire les deux » pour lancer les deux vues.',
+  error: 'La vidéo n’a pas pu se charger. Rechargez la page.',
+} : {
+  play: 'Play both',
+  pause: 'Pause both',
+  loading: 'Loading…',
+  loadingPair: 'Loading the pair…',
+  finished: 'Finished · play again or restart',
+  playing: 'Playing both views',
+  paused: 'Paused · use Play both to compare',
+  individual: 'Use the individual video play controls to load this pair.',
+  restarted: 'Restarted · ready to play',
+  startBoth: 'Use Play both to start both views.',
+  error: 'This video could not load. Try reloading the page.',
+};
 const pairs = [];
 
 document.querySelectorAll('[data-video-pair]').forEach(section => {
@@ -8,7 +33,7 @@ document.querySelectorAll('[data-video-pair]').forEach(section => {
   const toggle = section.querySelector('[data-pair-toggle]');
   const restart = section.querySelector('[data-pair-restart]');
   const status = section.querySelector('[data-pair-status]');
-  const pairLabel = toggle.getAttribute('aria-label').replace(/^Play both /, '');
+  const pairLabel = toggle.getAttribute('aria-label').slice(messages.play.length);
   let pendingPlay = false;
   let playRequest = 0;
 
@@ -21,12 +46,12 @@ document.querySelectorAll('[data-video-pair]').forEach(section => {
 
   const update = () => {
     const playing = videos.some(video => !video.paused && !video.ended);
-    toggle.textContent = pendingPlay ? 'Loading…' : playing ? 'Pause both' : 'Play both';
-    toggle.setAttribute('aria-label', `${playing ? 'Pause' : 'Play'} both ${pairLabel}`);
+    toggle.textContent = pendingPlay ? messages.loading : playing ? messages.pause : messages.play;
+    toggle.setAttribute('aria-label', `${playing ? messages.pause : messages.play}${pairLabel}`);
     toggle.setAttribute('aria-pressed', String(playing));
-    if (pendingPlay) status.textContent = 'Loading the pair…';
-    else if (videos.every(video => video.ended)) status.textContent = 'Finished · play again or restart';
-    else status.textContent = playing ? 'Playing both views' : 'Paused · use Play both to compare';
+    if (pendingPlay) status.textContent = messages.loadingPair;
+    else if (videos.every(video => video.ended)) status.textContent = messages.finished;
+    else status.textContent = playing ? messages.playing : messages.paused;
   };
 
   const play = async () => {
@@ -42,7 +67,7 @@ document.querySelectorAll('[data-video-pair]').forEach(section => {
     pendingPlay = false;
     if (results.some(result => result.status === 'rejected')) {
       pause();
-      status.textContent = 'Use the individual video play controls to load this pair.';
+      status.textContent = messages.individual;
       return;
     }
     update();
@@ -56,7 +81,7 @@ document.querySelectorAll('[data-video-pair]').forEach(section => {
   restart.addEventListener('click', () => {
     pause();
     videos.forEach(video => { video.currentTime = 0; });
-    status.textContent = 'Restarted · ready to play';
+    status.textContent = messages.restarted;
   });
 
   videos.forEach((video, index) => {
@@ -66,7 +91,7 @@ document.querySelectorAll('[data-video-pair]').forEach(section => {
         const other = videos[1 - index];
         if (Math.abs(other.currentTime - video.currentTime) > 0.15) other.currentTime = video.currentTime;
         if (other.paused && !other.ended) void other.play().catch(() => {
-          status.textContent = 'Use Play both to start both views.';
+          status.textContent = messages.startBoth;
         });
       }
       update();
@@ -86,7 +111,7 @@ document.querySelectorAll('[data-video-pair]').forEach(section => {
     video.addEventListener('ended', update);
     video.addEventListener('error', () => {
       pause();
-      status.textContent = 'This video could not load. Try reloading the page.';
+      status.textContent = messages.error;
     });
   });
 

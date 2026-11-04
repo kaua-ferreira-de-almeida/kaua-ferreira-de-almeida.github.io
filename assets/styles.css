@@ -71,6 +71,16 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   line-height: 24px;
 }
 .site-nav a:hover, .profile-links a:hover, .back-link:hover { color: var(--accent); }
+.language-switch {
+  margin-inline-start: auto;
+  border: 1px solid var(--accent);
+  border-radius: 7px;
+  padding: 4px 12px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+}
+.site-nav .language-switch:hover { background: var(--accent); color: var(--background); }
 
 .portfolio-layout {
   display: flex;
