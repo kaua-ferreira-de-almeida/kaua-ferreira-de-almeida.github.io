@@ -19,10 +19,13 @@
   <nav class="site-nav" aria-label="Main navigation">
     <a href="./" aria-current="page">Home</a>
     <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
     <a href="#experience">Experience</a>
     <a href="#education">Education</a>
     <a href="#skills">Skills</a>
     <a href="#tools">Tools</a>
+    <a href="#languages">Languages</a>
+    <a href="#documents">Documents</a>
     <a href="#contact">Contact</a>
     <a class="language-switch" href="../" hreflang="fr" lang="fr" aria-label="Lire en français">FR</a>
   </nav>
@@ -31,32 +34,46 @@
     <aside class="profile-card" aria-label="Profile">
       <img class="profile-photo" src="../assets/images/kaua-portrait.jpeg" alt="Kauã Ferreira de Almeida" width="1024" height="1280" fetchpriority="high">
       <h3>Kauã Ferreira de Almeida</h3>
-      <h3>Mechanical &amp; Robotics Engineering</h3>
+      <h3>Engineering student · Robotics and systems</h3>
       <p class="profile-location">Clermont-Ferrand, France</p>
       <div class="profile-links">
         <a href="https://www.linkedin.com/in/kaua-ferreira-de-almeida/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:kaualmeida2013@hotmail.com">Email</a>
       </div>
       <a class="cv-button" href="../CV_Kaua_FERREIRA_DE_ALMEIDA_QR.pdf" target="_blank" rel="noopener noreferrer">View French CV (PDF)</a>
+      <a class="cv-button recommendation-button" href="../Lettre_recommandation_Kaua_FERREIRA_DE_ALMEIDA.pdf" target="_blank" rel="noopener noreferrer">Recommendation letter (PDF)</a>
     </aside>
 
     <main id="main" class="portfolio-content">
       <section class="intro" aria-label="Introduction">
         <h2>Hello</h2>
         <h1>I’m Kauã Ferreira de Almeida,</h1>
-        <h1 class="role-heading" data-role-heading data-secondary-role="Robotics Engineer">
-          <span class="sr-only">Mechanical Engineer and Robotics Engineer</span>
+        <h1 class="role-heading" data-role-heading data-secondary-role="Robotics and systems">
+          <span class="sr-only">Engineering student · Robotics and systems</span>
           <span class="role-visual" aria-hidden="true">
-            <span class="role-space">Mechanical Engineer</span>
-            <span class="role-line"><span data-typewriter>Mechanical Engineer</span><span class="typing-cursor"></span></span>
+            <span class="role-space">Engineering student</span>
+            <span class="role-line"><span data-typewriter>Engineering student</span><span class="typing-cursor"></span></span>
           </span>
         </h1>
         <p class="intro-summary">I’m a final-year mechanical engineering student specializing in robotics and pursuing a parallel master’s in automation and robotics. At Institut Pascal, I helped turn a method for manipulating flexible objects into code, tested it on real robot arms and analyzed the results.</p>
         <p class="availability">Seeking a 6-month final-year internship · Available March 2027</p>
-        <div class="intro-actions">
-          <a class="intro-button" href="#projects">Explore projects <span aria-hidden="true">↓</span></a>
-          <a class="intro-secondary" href="#contact">Get in touch</a>
+        <div class="research-shortcuts">
+          <a href="#journal-paper">Published journal article · 2026</a>
+          <a href="#ral-submission">Submitted to IEEE RA-L</a>
         </div>
+        <div class="intro-actions">
+          <a class="intro-button" href="#projects">Explore projects</a>
+          <a class="intro-button" href="#contact">Get in touch</a>
+        </div>
+      </section>
+
+      <section id="languages" aria-labelledby="languages-title">
+        <h2 id="languages-title" class="section-title">Languages</h2>
+        <ul class="language-grid" role="list">
+          <li class="card language-card"><h3>French</h3><p class="language-level">C1</p><p>Advanced</p></li>
+          <li class="card language-card"><h3>English</h3><p class="language-level">C1</p><p>Advanced</p></li>
+          <li class="card language-card"><h3>Portuguese</h3><p class="language-level language-native">Native</p><p>Native language</p></li>
+        </ul>
       </section>
 
       <section id="projects" aria-labelledby="projects-title">
@@ -76,7 +93,7 @@
           <a class="card project-card" data-project="3d-reconstruction" href="3d-reconstruction/">
             <img class="project-image reconstruction-project-image" src="../assets/images/reconstruction-shoe.jpg" alt="Red 3D mesh of a reconstructed shoe" width="625" height="378" loading="lazy">
             <div class="project-card-copy">
-              <p class="project-year">SIGMA Clermont · 2025–2026</p>
+              <p class="project-year">SIGMA Clermont · S7–S8 · 2025–2026</p>
               <h3>Robotic 3D reconstruction of a shoe</h3>
               <p class="project-description">A team project that combined a simulated UR3e scan, RGB-D vision and Open3D to turn multiple views of a shoe into a 3D mesh.</p>
               <p class="project-tags">ROS 2 · Gazebo · MoveIt 2 · Open3D</p>
@@ -95,25 +112,53 @@
             </div>
           </a>
         </div>
-      </section>
-
-      <section aria-labelledby="publications-title">
-        <h2 id="publications-title" class="section-title">Publications</h2>
-        <a class="card publication-card" hreflang="en" href="https://doi.org/10.1007/s00170-026-18504-9" target="_blank" rel="noopener noreferrer">
-          <div class="publication-heading">
-            <h3>Adhesion, sterilization resistance and heat deflection temperature of 3D printed PLA parts coated with hydroxyapatite by powder bed annealing</h3>
-            <span class="publication-year">2026</span>
+        <a class="card project-card project-in-progress" href="vision-guided-manipulation/">
+          <div>
+            <p class="project-year">SIGMA Clermont · S9 <span class="project-progress-status">In progress</span></p>
+            <h3>Vision-guided robotic manipulation</h3>
+            <p class="project-description">Semester 9 project with a UR3e and a camera mounted on the arm. The goal is to locate, pick up and place an object.</p>
           </div>
-          <p class="publication-journal">The International Journal of Advanced Manufacturing Technology</p>
-          <div class="publication-details">
-            <p>July 2026 · Volume 145 (11–12) · Pages 8187–8206</p>
-            <p class="doi">DOI: 10.1007/s00170-026-18504-9 · CC BY 4.0</p>
-          </div>
+          <span class="project-action">See project progress</span>
         </a>
       </section>
 
+      <section id="publications" aria-labelledby="publications-title">
+        <h2 id="publications-title" class="section-title">Publications and manuscripts</h2>
+        <div class="research-grid">
+          <article id="journal-paper" class="card publication-card featured-publication">
+            <p class="research-status">Published journal article</p>
+            <h3 lang="en">Adhesion, sterilization resistance and heat deflection temperature of 3D printed PLA parts coated with hydroxyapatite by powder bed annealing</h3>
+            <p class="publication-journal" lang="en">The International Journal of Advanced Manufacturing Technology</p>
+            <p class="publication-meta">July 2026 · vol. 145 · pp. 8187–8206</p>
+            <a class="research-action" href="https://doi.org/10.1007/s00170-026-18504-9" hreflang="en" target="_blank" rel="noopener noreferrer">Read the article (DOI)</a>
+          </article>
+          <article id="ral-submission" class="card publication-card featured-submission">
+            <p class="research-status">Submitted manuscript</p>
+            <h3 lang="en">Shape-DMP: Dynamic Movement Primitives with Online Shape Feedback</h3>
+            <p class="publication-journal" lang="en">IEEE Robotics and Automation Letters (RA-L)</p>
+            <p class="publication-meta">Two or three Franka arms adapt a demonstrated motion using live visual feedback on the object’s shape.</p>
+            <a class="research-action" href="deformable-objects/">See the Shape-DMP experiments</a>
+          </article>
+        </div>
+        <details class="card publications-disclosure">
+          <summary>Show other publications <span class="publication-count">(6)</span></summary>
+          <div class="proceedings-content">
+            <p>Six full papers in the COBEM and COBEF proceedings, listed in my Lattes CV.</p>
+            <ul class="proceedings-list">
+              <li><p><a href="https://www.abcm.org.br/proceedings/view/COB2023/0505" target="_blank" rel="noopener noreferrer"><span lang="en">Comparison of impact resistance of annealed 3D printed PLA according to different Izod ASTM test standards</span></a></p><span class="proceedings-venue">COBEM 2023</span></li>
+<li><p><span lang="pt">Quantificação de incerteza e calibração de células de carga com sistema de aquisição por Arduino</span></p><span class="proceedings-venue">COBEF 2023</span></li>
+<li><p><span lang="pt">Influência de parâmetros de impressão nas resistências ao impacto e à tração de peças produzidas pelo processo Fused Filament Fabrication</span></p><span class="proceedings-venue">COBEF 2023</span></li>
+<li><p><span lang="en">Influence of annealing on PLA mechanical and thermal resistance</span></p><span class="proceedings-venue">COBEM 2023</span></li>
+<li><p><a href="https://abcm.org.br/proceedings/view/COF23/0279" target="_blank" rel="noopener noreferrer"><span lang="pt">Análise dos efeitos do recozimento na resistência ao impacto de peças poliméricas impressas por FFF</span></a></p><span class="proceedings-venue">COBEF 2023</span></li>
+<li><p><a href="https://abcm.org.br/proceedings/view/COB2023/0502" target="_blank" rel="noopener noreferrer"><span lang="en">Impact resistance of quenched 1045 steel bars for quick stop equipment in turning operations</span></a></p><span class="proceedings-venue">COBEM 2023</span></li>
+            </ul>
+            <a class="research-action" href="https://lattes.cnpq.br/2538190620494968" hreflang="pt" target="_blank" rel="noopener noreferrer">View my Lattes CV</a>
+          </div>
+        </details>
+      </section>
+
       <section id="experience" aria-labelledby="experience-title">
-        <h2 id="experience-title" class="section-title">Experience</h2>
+        <h2 id="experience-title" class="section-title">Professional experience</h2>
         <div class="stack">
           <article class="card experience-card">
             <h3>Robotics Research Intern</h3>
@@ -125,7 +170,7 @@
             <a class="section-link" href="deformable-objects/">See the experiments <span aria-hidden="true">→</span></a>
           </article>
           <article class="card experience-card">
-            <h3>Researcher · Machining Laboratory</h3>
+            <h3>Student researcher · Machining Laboratory</h3>
             <p class="experience-meta">Federal University of Uberlândia · Brazil · March 2022 – June 2025</p>
             <ul class="experience-details">
               <li>Researched personalized 3D-printed insoles, low-cost bone implants and the mechanical behavior of printed materials.</li>
@@ -142,8 +187,8 @@
           <article class="card education-card">
             <p class="education-meta">Aubière, France · 2025–2027 · In progress</p>
             <h3>SIGMA Clermont</h3>
-            <p class="education-degree">Mechanical Engineering · Innovative Mechanisms and Robots (IMR)</p>
-            <p>Engineering double degree with the Federal University of Uberlândia. The IMR track covers robot kinematics and control, mechanical design, sensor integration and computer vision.</p>
+            <p class="education-degree">Engineering degree · Innovative Mechanisms and Robots (IMR)</p>
+            <p>Engineering double degree with the Federal University of Uberlândia. The English-taught track includes robotics, computer vision, real-time systems and mechatronic modeling.</p>
             <a class="section-link" href="3d-reconstruction/">Applied project · Robotic 3D reconstruction <span aria-hidden="true">→</span></a>
           </article>
           <article class="card education-card">
@@ -299,9 +344,20 @@
         </div>
       </section>
 
-      <section aria-labelledby="languages-title">
-        <h2 id="languages-title" class="section-title">Languages</h2>
-        <p class="languages"><span>Portuguese · Native</span><span>English · C1</span><span>French · B2</span></p>
+      <section id="documents" aria-labelledby="documents-title">
+        <h2 id="documents-title" class="section-title">Documents</h2>
+        <div class="documents-grid">
+          <a class="card document-card" href="../CV_Kaua_FERREIRA_DE_ALMEIDA_QR.pdf" target="_blank" rel="noopener noreferrer">
+            <h3>French CV</h3>
+            <p>Education, experience, skills and languages.</p>
+            <span class="document-action">Open CV (PDF)</span>
+          </a>
+          <a class="card document-card" href="../Lettre_recommandation_Kaua_FERREIRA_DE_ALMEIDA.pdf" target="_blank" rel="noopener noreferrer">
+            <h3>Recommendation letter</h3>
+            <p>Dr Mohammad Alkhatib · Institut Pascal / SIGMA Clermont</p>
+            <span class="document-action">Read recommendation (PDF)</span>
+          </a>
+        </div>
       </section>
 
       <section id="contact" class="contact" aria-labelledby="contact-title">
